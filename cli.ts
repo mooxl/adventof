@@ -32,6 +32,9 @@ const challenge = await select({
   options: [{ value: "code", label: "Code" }, {
     value: "types",
     label: "Types",
+  }, {
+    value: "debug",
+    label: "Debug",
   }],
 });
 if (isCancel(challenge)) {
