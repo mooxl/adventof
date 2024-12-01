@@ -6,9 +6,9 @@ const lists: { left: number[]; right: number[] } = {
 };
 
 for (const line of input.split("\n")) {
-  const [leftEntry, rightEntry] = line.split("   ");
-  lists.left.push(Number.parseInt(leftEntry));
-  lists.right.push(Number.parseInt(rightEntry));
+  const [leftEntry, rightEntry] = line.split("   ").map(Number);
+  lists.left.push(leftEntry);
+  lists.right.push(rightEntry);
 }
 
 lists.left.sort();
