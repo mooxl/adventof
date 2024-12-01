@@ -1,8 +1,11 @@
-const input = Deno.readTextFileSync("./input.txt").split("\n");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`).split(
+  "\n",
+);
 const groups: string[][] = [];
 input.forEach((_, index) => {
-  if (index && (index + 1) % 3 === 0)
+  if (index && (index + 1) % 3 === 0) {
     groups.push([input[index - 2], input[index - 1], input[index]]);
+  }
 });
 const badges: string[] = [];
 groups.forEach((group) => {
@@ -22,5 +25,5 @@ console.log(
     if (asciicode < 97) prev += asciicode - 38;
     else prev += asciicode - 96;
     return prev;
-  }, 0)
+  }, 0),
 );

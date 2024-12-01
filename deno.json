@@ -1,5 +1,9 @@
 {
   "tasks": {
-    "start": "deno run --allow-read --watch "
+    "start": "deno run -A cli.ts",
+    "run": "deno run --watch -A"
+  },
+  "imports": {
+    "@clack/prompts": "npm:@clack/prompts@^0.8.2"
   }
 }

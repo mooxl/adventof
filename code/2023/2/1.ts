@@ -1,4 +1,4 @@
-const file = await Deno.readTextFile("./2023/2/input.txt");
+const file = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`);
 
 const games: { red: number; green: number; blue: number }[][] = [];
 const max = { red: 12, green: 13, blue: 14 };

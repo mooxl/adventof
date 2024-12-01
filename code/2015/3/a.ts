@@ -1,4 +1,4 @@
-const input = Deno.readTextFileSync("./input.txt");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`);
 
 const houses: number[][] = [[]];
 
@@ -31,7 +31,7 @@ input.split("").forEach((move, i) => {
 });
 const lucky = houses.reduce(
   (prev, cur) => prev + cur.filter((thi) => typeof thi === "number").length,
-  0
+  0,
 );
 
 console.log(lucky);

@@ -1,4 +1,6 @@
-const input = Deno.readTextFileSync("./input.txt").split("\n");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`).split(
+  "\n",
+);
 const rucksacks = input.map((line) => [
   line.substring(0, Math.floor(line.length / 2)),
   line.substring(Math.floor(line.length / 2)),
@@ -18,5 +20,5 @@ console.log(
     if (asciicode < 97) prev += asciicode - 38;
     else prev += asciicode - 96;
     return prev;
-  }, 0)
+  }, 0),
 );

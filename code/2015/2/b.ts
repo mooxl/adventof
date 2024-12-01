@@ -1,4 +1,4 @@
-const input = Deno.readTextFileSync("./input.txt");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`);
 const neededRibbon = input.split("\n").reduce((prev, cur) => {
   let found = false;
   const dimensions = cur.split("x").map((side) => Number(side));

@@ -1,4 +1,4 @@
-const input = Deno.readTextFileSync("./input.txt");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`);
 const max = [0, 0, 0];
 input.split("\n\n").forEach((elf) => {
   const min = Math.min(...max);

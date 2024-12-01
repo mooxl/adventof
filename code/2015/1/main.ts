@@ -1,6 +1,5 @@
-const input = Deno.readTextFileSync("./input.txt");
+const input = Deno.readTextFileSync(`${import.meta.dirname}/input.txt`);
 let bottom = 0;
-
 input.split("").reduce((prev, cur, i) => {
   if (cur === "(") prev = prev + 1;
   else prev = prev - 1;
