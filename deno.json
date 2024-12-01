@@ -4,6 +4,7 @@
     "run": "deno run --watch -A"
   },
   "imports": {
-    "@clack/prompts": "npm:@clack/prompts@^0.8.2"
+    "@clack/prompts": "npm:@clack/prompts@^0.8.2",
+    "type-testing": "npm:type-testing@^0.2.0"
   }
 }

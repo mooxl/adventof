@@ -1,7 +1,8 @@
 {
   "version": "4",
   "specifiers": {
-    "npm:@clack/prompts@~0.8.2": "0.8.2"
+    "npm:@clack/prompts@~0.8.2": "0.8.2",
+    "npm:type-testing@0.2": "0.2.0"
   },
   "npm": {
     "@clack/core@0.3.5": {
@@ -24,11 +25,15 @@
     },
     "sisteransi@1.0.5": {
       "integrity": "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="
+    },
+    "type-testing@0.2.0": {
+      "integrity": "sha512-HAf4o9LjUAh9xEIXZTNm+ak2tjTgK64QhTlT/D8UNedII2/eagdEbtbaVK6920K7+QBrwfvxpjPGlfWVKZ+MZQ=="
     }
   },
   "workspace": {
     "dependencies": [
-      "npm:@clack/prompts@~0.8.2"
+      "npm:@clack/prompts@~0.8.2",
+      "npm:type-testing@0.2"
     ]
   }
 }
