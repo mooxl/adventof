@@ -93,4 +93,3 @@ child.stdout.pipeTo(Deno.stdout.writable);
 
 // manually close stdin
 child.stdin.close();
-const status = await child.status;
