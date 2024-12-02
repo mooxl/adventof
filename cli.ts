@@ -27,6 +27,26 @@ const getDir = (
   }
 };
 
+async function runCommand(args: string[]) {
+  try {
+    const command = new Deno.Command(Deno.execPath(), {
+      args,
+      stdout: "inherit",
+      stderr: "inherit",
+    });
+
+    const process = command.spawn();
+    const status = await process.status;
+
+    if (!status.success) {
+      throw new Error(`Command failed with status ${status.code}`);
+    }
+  } catch (error) {
+    console.error("Error running command:", error);
+    Deno.exit(1);
+  }
+}
+
 const challenge = await select({
   message: "Advent of",
   options: [{ value: "code", label: "Code" }, {
@@ -58,11 +78,20 @@ const { results: days, error: daysError } = getDir({ challenge, year });
 if (daysError !== null) Deno.exit();
 
 const day = await select({
-  message: "Advent of",
+  message: "Which day?",
   options: days.map((day) => ({ value: day, label: day })),
 });
 if (isCancel(day)) {
   cancel("Operation cancelled.");
+  Deno.exit();
+}
+
+if (day.endsWith(".ts") || day.endsWith(".js")) {
+  await runCommand([
+    "task",
+    "run",
+    `./${challenge}/${year}/${day}`,
+  ]);
   Deno.exit();
 }
 
@@ -80,19 +109,8 @@ if (isCancel(part)) {
   Deno.exit();
 }
 
-const command = new Deno.Command(Deno.execPath(), {
-  args: [
-    "task",
-    "run",
-    `./${challenge}/${year}/${day}/${part}`,
-  ],
-  stdin: "piped",
-  stdout: "piped",
-});
-const child = command.spawn();
-
-// open a file and pipe the subprocess output to it.
-child.stdout.pipeTo(Deno.stdout.writable);
-
-// manually close stdin
-child.stdin.close();
+await runCommand([
+  "task",
+  "run",
+  `./${challenge}/${year}/${day}/${part}`,
+]);
