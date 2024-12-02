@@ -6,7 +6,7 @@ combined for the Elixir of Eternal Snow, ensuring both are properly capitalized
 and joined with a dash.
 */
 
-const brewPotion = (ingredient1: string, ingredient2: string) => {
+const brewPotion = (ingredient1, ingredient2) => {
   // Ensure both ingredients are provided
   if (!ingredient1 || !ingredient2) {
     throw new Error("Both ingredients are required.");
