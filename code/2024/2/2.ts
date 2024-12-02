@@ -29,6 +29,14 @@ for (const line of input.split("\n")) {
   const levels = line.split(" ").map(Number);
   if (isValid(levels)) {
     safeReports++;
+    continue;
+  }
+  for (const index of levels.keys()) {
+    const newLevels = [...levels.slice(0, index), ...levels.slice(index + 1)];
+    if (isValid(newLevels)) {
+      safeReports++;
+      break;
+    }
   }
 }
 
