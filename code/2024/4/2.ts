@@ -10,11 +10,7 @@ for (const [indexLine, currentLine] of lines.entries()) {
   for (const [indexLetter, currentLetter] of currentLine.entries()) {
     if (currentLetter !== "A") continue;
     if (
-      !lines[indexLine - 1] || !lines[indexLine + 1] ||
-      !lines[indexLine - 1][indexLetter - 1] ||
-      !lines[indexLine - 1][indexLetter + 1] ||
-      !lines[indexLine + 1][indexLetter - 1] ||
-      !lines[indexLine + 1][indexLetter + 1]
+      !lines[indexLine - 1] || !lines[indexLine + 1]
     ) {
       continue;
     }
