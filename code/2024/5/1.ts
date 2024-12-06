@@ -42,6 +42,7 @@ for (const update of updates) {
       continue;
     }
     correct = false;
+    break;
   }
   if (correct) {
     count = count + update[(update.length - 1) / 2];
