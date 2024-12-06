@@ -20,14 +20,12 @@ for (const [indexLine, currentLine] of lines.entries()) {
       lines[indexLine + 1][indexLetter + 1],
       lines[indexLine + 1][indexLetter - 1],
     ];
-
     if (
       x.filter((char) => char === "M").length !== 2 ||
       x.filter((char) => char === "S").length !== 2
     ) {
       continue;
     }
-
     if (x[0] !== x[2]) {
       count++;
     }
